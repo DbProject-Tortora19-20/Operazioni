@@ -14,8 +14,8 @@ insert into azienda(Partita_iva,Ragione_sociale,Cliente_CodiceC) values(?,?,?);
 insert into telefono_fax(Numero,Tipo,Cliente_CodiceC) values(?,?,?);
 
 /*3.Inserire un Software con relativo Sistema Operativo.*/
-insert into software(CodiceS,Nome,Tipo,Prezzo,Caratteristica,Licenza,Versione) values (?,?,?,?,?,?,?);
 
+insert into software(CodiceS,Nome,Tipo,Prezzo,Caratteristica,Licenza,Versione) values (?,?,?,?,?,?,?);
 insert into sistema_operativo (Sistema,Software_CodiceS) values(?,?);
 
 /*4.Inserire un Corso Formativo.*/
