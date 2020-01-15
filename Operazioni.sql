@@ -129,14 +129,14 @@ select operatore.*
 from operatore inner join problema on operatore.CodiceO=problema.Operatore_CodiceO
 where problema.software_CodiceS=6 AND problema.numero=1;
 
-/*23.Quanti Clienti hanno acquistato un Software.*//*da fare*/
-
-
-
-/*24.Visualizzare i numeri di Telefono/Fax di un Cliente*/
+/*23.Visualizzare i numeri di Telefono/Fax di un Cliente*/
 select telefono_fax.numero, telefono_fax.tipo
 from telefono_fax
 where telefono_fax.Cliente_CodiceC=1;
+
+/*24.Quanti Clienti hanno acquistato un Software.*//*da fare*/
+
+
 
 /*AGGIARNAMENTO*/
 
