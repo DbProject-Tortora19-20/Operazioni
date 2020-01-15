@@ -50,7 +50,7 @@ insert into telefono_fax(Numero,Tipo,Cliente_CodiceC) values(?,?,?);
 
 insert into sistema_operativo(Sistema,Software_CodiceS) values (?,?);
 
-/*VISUALIZZARE*/
+/*VISUALIZZAZIONE*/
 
 /*12.Stampare il numero di esami conseguiti da un Privato per un Corso Formativo.*/
 
