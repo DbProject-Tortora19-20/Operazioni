@@ -3,13 +3,13 @@ use softwarehouse;
 /*INSERIMENTO*/
 /*1.Inserire un Cliente Privato.*/
 
-insert into cliente (CodiceC,Indirizzo) values(?,?);
+insert into cliente (CodiceC,Indirizzo,Email) values(?,?);
 insert into privato(CF,Nome,Cognome,Data_nascita,Cliente_CodiceC) values(?,?);
 insert into telefono_fax(Numero,Tipo,Cliente_CodiceC) values(?,?,?);
 
 /*2.Inserire un Cliente Azienda*/
 
-insert into cliente (CodiceC,Indirizzo) values(?,?);
+insert into cliente (CodiceC,Indirizzo,Email) values(?,?);
 insert into azienda(Partita_iva,Ragione_sociale,Cliente_CodiceC) values(?,?,?);
 insert into telefono_fax(Numero,Tipo,Cliente_CodiceC) values(?,?,?);
 
@@ -61,13 +61,13 @@ where privato.Cliente_CodiceC= 4;
 
 /*13.Visualizzare il numero di esami mancanti per ogni Cliente inerenti ad un Corso Formativo.*/
 
-select privato.CF, privato.Nome, privato.Cognome, privato.Data_nascita, azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo, corso_formativo.numero_esami-segue.Numero_esami_dati as Esami_mancanti
+select privato.CF, privato.Nome, privato.Cognome, privato.Data_nascita, azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo,cliente.Email, corso_formativo.numero_esami-segue.Numero_esami_dati as Esami_mancanti
 from segue inner join cliente on segue.Cliente_CodiceC=cliente.CodiceC left join privato on cliente.CodiceC=privato.Cliente_CodiceC left join azienda on cliente.CodiceC=azienda.Cliente_CodiceC inner join corso_formativo on corso_formativo.CodiceCF=segue.Corso_Formativo_CodiceCF
 where corso_formativo.CodiceCF=2;
 
 /*14.Mostrare quali Azienda hanno conseguito almeno n esami.*/
 
-select distinct (cliente.CodiceC), azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo, telefono_fax.Numero, telefono_fax.Tipo 
+select distinct (cliente.CodiceC), azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo,cliente.Email, telefono_fax.Numero, telefono_fax.Tipo 
 from azienda inner join cliente on azienda.Cliente_CodiceC=cliente.CodiceC
 inner join telefono_fax on cliente.CodiceC=telefono_fax.Cliente_CodiceC
 inner join segue on segue.Cliente_codiceC=cliente.CodiceC
@@ -109,7 +109,7 @@ where software.tipo='Firmware';
 
 /*20.Visualizzare i clienti che hanno conseguito un numero di esami pari a quelli previsti dal corso formativo*/
  
-select  privato.CF, privato.Nome, privato.Cognome, azienda.Ragione_sociale, azienda.Partita_iva, cliente.CodiceC,cliente.Indirizzo, corso_formativo.CodiceCF,corso_formativo.Descrizione
+select  privato.CF, privato.Nome, privato.Cognome, azienda.Ragione_sociale, azienda.Partita_iva, cliente.CodiceC,cliente.Indirizzo,cliente.Email, corso_formativo.CodiceCF,corso_formativo.Descrizione
 from cliente left join privato on privato.Cliente_CodiceC=cliente.CodiceC left join azienda on azienda.Cliente_CodiceC=cliente.CodiceC inner join segue on cliente.codiceC=segue.Cliente_CodiceC
 join corso_formativo  on segue.Corso_Formativo_CodiceCF=corso_formativo.CodiceCF
 where segue.Numero_esami_dati=corso_formativo.Numero_esami;
