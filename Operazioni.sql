@@ -134,8 +134,10 @@ select telefono_fax.numero, telefono_fax.tipo
 from telefono_fax
 where telefono_fax.Cliente_CodiceC=1;
 
-/*24.Quanti Clienti hanno acquistato un Software.*//*da fare*/
-
+/*24.Quanti Clienti hanno acquistato un Software.*/
+select count(cliente.CodiceC) as numClienti
+from cliente inner join acquista on cliente.CodiceC=acquista.Cliente_CodiceC
+where acquista.Software_CodiceS=6;
 
 
 /*AGGIARNAMENTO*/
