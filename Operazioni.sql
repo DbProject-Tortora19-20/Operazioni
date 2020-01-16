@@ -135,8 +135,8 @@ from telefono_fax
 where telefono_fax.Cliente_CodiceC=1;
 
 /*24.Quanti Clienti hanno acquistato un Software.*/
-select count(cliente.CodiceC) as numClienti
-from cliente inner join acquista on cliente.CodiceC=acquista.Cliente_CodiceC
+select count(acquista.Cliente_CodiceC) as numClienti
+from acquista 
 where acquista.Software_CodiceS=6;
 
 
