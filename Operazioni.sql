@@ -61,13 +61,13 @@ where privato.Cliente_CodiceC= 4;
 
 /*13.Visualizzare il numero di esami mancanti per ogni Cliente inerenti ad un Corso Formativo.*/
 
-select privato.CF, privato.Nome, privato.Cognome, privato.Data_nascita, azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo,cliente.Email, corso_formativo.numero_esami-segue.Numero_esami_dati as Esami_mancanti
+select privato.CF, privato.Nome, privato.Cognome, privato.Data_nascita, azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo, cliente.Email, corso_formativo.numero_esami-segue.Numero_esami_dati as Esami_mancanti
 from segue inner join cliente on segue.Cliente_CodiceC=cliente.CodiceC left join privato on cliente.CodiceC=privato.Cliente_CodiceC left join azienda on cliente.CodiceC=azienda.Cliente_CodiceC inner join corso_formativo on corso_formativo.CodiceCF=segue.Corso_Formativo_CodiceCF
 where corso_formativo.CodiceCF=2;
 
 /*14.Mostrare quali Azienda hanno conseguito almeno n esami.*/
 
-select distinct (cliente.CodiceC), azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo,cliente.Email, telefono_fax.Numero, telefono_fax.Tipo 
+select distinct (cliente.CodiceC), azienda.Partita_iva, azienda.Ragione_sociale, cliente.Indirizzo, cliente.Email, telefono_fax.Numero, telefono_fax.Tipo 
 from azienda inner join cliente on azienda.Cliente_CodiceC=cliente.CodiceC
 inner join telefono_fax on cliente.CodiceC=telefono_fax.Cliente_CodiceC
 inner join segue on segue.Cliente_codiceC=cliente.CodiceC
@@ -95,7 +95,7 @@ having sum(prezzo)>100;
 
 /*18.Visualizzare l'elenco di tutti gli Attestati conseguiti da un Cliente.*/
 
-select privato.CF, privato.Nome, privato.Cognome, azienda.Ragione_sociale, azienda.Partita_iva, attestato.Corso_Formativo_CodiceCF,corso_formativo.Descrizione,attestato.data_rilascio, cliente.Indirizzo
+select privato.CF, privato.Nome, privato.Cognome, azienda.Ragione_sociale, azienda.Partita_iva, cliente.Indirizzo, cliente.Email, attestato.Corso_Formativo_CodiceCF,corso_formativo.Descrizione,attestato.data_rilascio
 from cliente inner join attestato on cliente.CodiceC=attestato.Cliente_CodiceC left join privato on privato.Cliente_CodiceC=cliente.CodiceC left join azienda on azienda.Cliente_CodiceC=cliente.CodiceC inner join corso_formativo on attestato.Corso_Formativo_CodiceCF=corso_formativo.CodiceCF
 where attestato.Cliente_CodiceC=3;
 
@@ -130,15 +130,16 @@ from operatore inner join problema on operatore.CodiceO=problema.Operatore_Codic
 where problema.software_CodiceS=6 AND problema.numero=1;
 
 /*23.Visualizzare i numeri di Telefono/Fax di un Cliente*/
+
 select telefono_fax.numero, telefono_fax.tipo
 from telefono_fax
 where telefono_fax.Cliente_CodiceC=1;
 
 /*24.Quanti Clienti hanno acquistato un Software.*/
+
 select count(acquista.Cliente_CodiceC) as numClienti
 from acquista 
 where acquista.Software_CodiceS=6;
-
 
 /*AGGIARNAMENTO*/
 
