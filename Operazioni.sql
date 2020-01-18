@@ -71,7 +71,7 @@ select distinct (cliente.CodiceC), azienda.Partita_iva, azienda.Ragione_sociale,
 from azienda inner join cliente on azienda.Cliente_CodiceC=cliente.CodiceC
 inner join telefono_fax on cliente.CodiceC=telefono_fax.Cliente_CodiceC
 inner join segue on segue.Cliente_codiceC=cliente.CodiceC
-where segue.numero_esami_dati>2 and segue.Corso_Formativo_CodiceCF=4;
+where segue.numero_esami_dati>2 and segue.Corso_Formativo_CodiceCF=4 and (telefono_fax.Tipo='T' || telefono_fax.Tipo='E');
 
 /*15.Visualizzare un Operatore che ha preso in carico un determinato Problema. */
 
