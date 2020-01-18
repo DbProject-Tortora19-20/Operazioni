@@ -71,7 +71,7 @@ select distinct (cliente.CodiceC), azienda.Partita_iva, azienda.Ragione_sociale,
 from azienda inner join cliente on azienda.Cliente_CodiceC=cliente.CodiceC
 inner join telefono_fax on cliente.CodiceC=telefono_fax.Cliente_CodiceC
 inner join segue on segue.Cliente_codiceC=cliente.CodiceC
-where segue.numero_esami_dati>2 and segue.Corso_Formativo_CodiceCF=4 and (telefono_fax.Tipo='T' || telefono_fax.Tipo='E');
+where segue.numero_esami_dati>2 and segue.Corso_Formativo_CodiceCF=2 and (telefono_fax.Tipo='T' || telefono_fax.Tipo='E');
 
 /*15.Visualizzare un Operatore che ha preso in carico un determinato Problema. */
 
@@ -147,17 +147,17 @@ where acquista.Software_CodiceS=6;
 
 update segue
 set segue.numero_esami_dati=(select numero_esami_dati
-			     where segue.Cliente_CodiceS=? and  segue.Corso_formativo_CodiceCF=?)+1
+			     where segue.Cliente_CodiceC=? and  segue.Corso_formativo_CodiceCF=?)+1
 where segue.Cliente_CodiceC=? and segue.Corso_formativo_CodiceCF=?;
 
 /*26.Aggiornare il prezzo di un dato Software.*/
 
 update software
-set software=?
+set software.Prezzo=?
 where software.CodiceS=?;
 
 /*27.Aggiornare il campo risolto di Problema.*/
 
 update problema
-set risolto=?
+set problema.Risolto=?
 where problema.Software_CodiceS=? and problema.numero=?;
