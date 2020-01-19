@@ -141,7 +141,7 @@ select count(acquista.Cliente_CodiceC) as numClienti
 from acquista 
 where acquista.Software_CodiceS=6;
 
-/*AGGIARNAMENTO*/
+/*AGGIORNAMENTO*/
 
 /*25.Aggiornare il numero di esami dati per un Cliente*/
 
