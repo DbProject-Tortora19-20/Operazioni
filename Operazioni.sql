@@ -32,7 +32,7 @@ insert into attestato(Data_rilascio,Corso_Formativo_CodiceCF,Cliente_CodiceC) va
 
 /*7.Inserire un Operatore.*/
 
-insert into operatore(CodiceO,Nome,Cognome,Data_nascita,CF,Ruolo) values(?,?,?,?,?,?);
+insert into operatore(CodiceO,Nome,Cognome,Data_nascita,CF) values(?,?,?,?,?);
 
 /*8.Far seguire un cliente un Corso Formativo.*/
 
