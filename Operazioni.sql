@@ -159,5 +159,5 @@ where software.CodiceS=?;
 /*27.Aggiornare il campo risolto di Problema.*/
 
 update problema
-set problema.Risolto=?
+set problema.Risolto=true
 where problema.Software_CodiceS=? and problema.numero=?;
