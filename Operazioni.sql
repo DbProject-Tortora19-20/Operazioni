@@ -57,7 +57,7 @@ insert into sistema_operativo(Sistema,Software_CodiceS) values (?,?);
 select corso_formativo.CodiceCF,corso_formativo.Descrizione,corso_formativo.Numero_esami,segue.numero_esami_dati 
 from privato inner join segue on privato.Cliente_CodiceC=segue.Cliente_CodiceC
 inner join corso_formativo on segue.Corso_Formativo_CodiceCF=corso_formativo.CodiceCF
-where privato.Cliente_CodiceC= 4;
+where privato.Cliente_CodiceC= 4 and corso_formativo.codiceCF=1;
 
 /*13.Visualizzare il numero di esami mancanti per ogni Cliente inerenti ad un Corso Formativo.*/
 
