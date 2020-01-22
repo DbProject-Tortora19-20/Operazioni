@@ -161,3 +161,38 @@ where software.CodiceS=?;
 update problema
 set problema.Risolto=true
 where problema.Software_CodiceS=? and problema.numero=?;
+
+/*28.Cancellare i dati di un Cliente Privato*/
+
+delete from Privato where Cliente_CodiceC=1;
+delete from Telefono_fax where Cliente_CodiceC=1;
+delete from Segue where Cliente_CodiceC=1;
+delete from Attestato where Cliente_CodiceC=1;
+delete from Problema where Cliente_CodiceC=1;
+delete from Acquista where Cliente_CodiceC=1;
+delete from Cliente where CodiceC=1;
+
+/*29.Cancellare i dati di un Cliente Aziendale */
+
+delete from Azienda where Cliente_CodiceC=4;
+delete from Telefono_fax where Cliente_CodiceC=4;
+delete from Segue where Cliente_CodiceC=4;
+delete from Attestato where Cliente_CodiceC=4;
+delete from Problema where Cliente_CodiceC=4;
+delete from Acquista where Cliente_CodiceC=4;
+delete from Cliente where CodiceC=4;
+
+/*30.Cancellare un numero di telefono*/
+
+delete from Telefono_Fax where numero='+14389688199';
+
+/*31.Cancellare un Corso Formativo*/
+
+delete from Attestato where Corso_Formativo_CodiceCF=1;
+delete from Segue where Corso_Formativo_CodiceCF=1;
+delete from Corso_Formativo where CodiceCF=1;
+
+/*32.Cancellare i dati di un Operatore*/
+
+delete from Problema where Operatore_CodiceO=1;
+delete from Operatore where CodiceO=1;
