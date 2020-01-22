@@ -1,0 +1,11 @@
+use SoftwareHouse;
+select * from software inner join sistema_operativo on codices=software_codices;
+select * from cliente inner join privato on codicec=cliente_codicec;
+select * from cliente inner join azienda on codicec=cliente_codicec;
+select * from corso_formativo;
+select * from problema;
+select * from attestato;
+select * from operatore;
+select * from segue;
+select * from acquista;
+select * from telefono_fax;
