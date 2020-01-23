@@ -182,17 +182,13 @@ delete from Problema where Cliente_CodiceC=4;
 delete from Acquista where Cliente_CodiceC=4;
 delete from Cliente where CodiceC=4;
 
-/*30.Cancellare un numero di telefono*/
-
-delete from Telefono_Fax where numero='+14389688199';
-
-/*31.Cancellare un Corso Formativo*/
+/*30.Cancellare un Corso Formativo*/
 
 delete from Attestato where Corso_Formativo_CodiceCF=1;
 delete from Segue where Corso_Formativo_CodiceCF=1;
 delete from Corso_Formativo where CodiceCF=1;
 
-/*32.Cancellare i dati di un Operatore*/
+/*31.Cancellare i dati di un Operatore*/
 
 delete from Problema where Operatore_CodiceO=1;
 delete from Operatore where CodiceO=1;
